@@ -4,7 +4,8 @@ const EZ_TEXTING_CONFIG = {
     username: 'YOUR_EZ_TEXTING_USERNAME', // Replace with your EZ Texting username
     password: 'YOUR_EZ_TEXTING_PASSWORD', // Replace with your EZ Texting password
     apiUrl: 'https://app.eztexting.com/api',
-    listName: 'TCPA_Compliant_Optins' // Your contact list name
+    listName: 'TCPA_Compliant_Optins', // Your contact list name
+    notificationEmail: 'contact@realtycapital.io' // Email to receive opt-in notifications
 };
 
 // Phone number formatting
@@ -87,6 +88,31 @@ async function addContactToEZTexting(contactData) {
     });
 }
 
+// Send notification email to contact@realtycapital.io
+async function sendNotificationEmail(contactData) {
+    try {
+        // In production, this would send an actual email
+        // For now, we'll log the notification and simulate the email
+        console.log('📧 Sending opt-in notification to contact@realtycapital.io');
+        console.log('New opt-in:', {
+            name: contactData.name,
+            phone: contactData.phone,
+            propertyAddress: contactData.propertyAddress,
+            optInDate: contactData.optInDate,
+            notificationEmail: EZ_TEXTING_CONFIG.notificationEmail
+        });
+        
+        // Simulate email sending (replace with actual email service)
+        // Example: SendGrid, Mailgun, or server-side email endpoint
+        return Promise.resolve({ success: true });
+        
+    } catch (error) {
+        console.error('Error sending notification email:', error);
+        // Don't fail the form submission if email fails
+        return Promise.resolve({ success: false });
+    }
+}
+
 // Handle form submission
 async function handleFormSubmit(event) {
     event.preventDefault();
@@ -133,6 +159,9 @@ async function handleFormSubmit(event) {
         const result = await addContactToEZTexting(contactData);
         
         if (result.success) {
+            // Send notification email to contact@realtycapital.io
+            await sendNotificationEmail(contactData);
+            
             showMessage('Thank you! You have successfully opted in to receive property updates. You will receive a confirmation text shortly.', 'success');
             form.reset();
         } else {
