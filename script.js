@@ -125,7 +125,7 @@ async function handleFormSubmit(event) {
             name: name,
             propertyAddress: propertyAddress,
             optInDate: new Date().toISOString(),
-            consentText: 'I agree to receive automated text messages from Matthew at (555) 123-4567 about my property and real estate opportunities. Message frequency varies. Text HELP for help. Text STOP to opt-out.',
+            consentText: 'I agree to receive automated text messages from Start.eth LLC at (555) 123-4567 about my property and real estate opportunities. Message frequency varies. Text HELP for help. Text STOP to opt-out.',
             source: 'TCPA_Compliant_Web_Form'
         };
         
