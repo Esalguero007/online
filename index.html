@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Updates - Opt-in Form</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="form-card">
+            <div class="header">
+                <h1>Stay Updated on Your Property</h1>
+                <p class="subtitle">Get important updates about your property and real estate opportunities in your area.</p>
+            </div>
+
+            <form id="optinForm" class="optin-form">
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" required>
+                    <small class="help-text">We'll send you a verification code</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="property_address">Property Address</label>
+                    <input type="text" id="property_address" name="property_address" placeholder="Your property address" required>
+                </div>
+
+                <div class="tcpa-disclosure">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="consent" name="consent" required>
+                        <label for="consent" class="consent-label">
+                            I agree to receive automated text messages from Matthew at (555) 123-4567 about my property and real estate opportunities. 
+                            <strong>Message frequency varies.</strong> 
+                            <strong>Text HELP for help.</strong> 
+                            <strong>Text STOP to opt-out.</strong>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="legal-links">
+                    <p>By providing your phone number, you agree to our:</p>
+                    <ul>
+                        <li><a href="terms.html" target="_blank">Terms & Conditions</a></li>
+                        <li><a href="privacy.html" target="_blank">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <span class="btn-text">Get Updates</span>
+                    <span class="btn-loading" style="display: none;">Sending...</span>
+                </button>
+            </form>
+
+            <div class="compliance-info">
+                <h3>Important Information</h3>
+                <ul>
+                    <li><strong>Message Frequency:</strong> Varies based on property updates and opportunities</li>
+                    <li><strong>Sender:</strong> Matthew - Real Estate Professional</li>
+                    <li><strong>Carrier Charges:</strong> Message and data rates may apply</li>
+                    <li><strong>Opt-out:</strong> Reply STOP to unsubscribe at any time</li>
+                    <li><strong>Help:</strong> Reply HELP for assistance</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
